@@ -1,0 +1,27 @@
+@use '@/shared/assets/styles/_mixin';
+@use '@/shared/assets/styles/_variables';
+
+.clientsList{
+  width: 100%;
+  @include mixin.flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.clientList__error{
+  text-align: center;
+  font-size: 20px;
+  @include mixin.flex;
+  column-gap: 10px;
+}
+.clientList__retry{
+  width: 40px;
+  height: 40px;
+  background-color: variables.$blue-color;
+  border-radius: 20px;
+  @include mixin.flex;
+  svg{
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+  }
+}

@@ -1,0 +1,20 @@
+@use '@/shared/assets/styles/_mixin';
+
+.title{
+  font-size: 30px;
+  margin-bottom: 80px;
+  text-align: center;
+  padding-top: 50px;
+
+  h3{
+    font-size: 40px;
+  }
+}
+.input{
+  width: 100%;
+  margin-bottom: 70px;
+  @include mixin.flex;
+}
+.clientsList{
+  margin-bottom: 50px;
+}

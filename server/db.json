@@ -1,0 +1,25 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "fullName": "Паршин Никита Михайлович",
+      "name": "Никита",
+      "surname": "Паршин",
+      "age": 15,
+      "phone": "+79990000000",
+      "dateRegister": "18.06.2026",
+      "applicationQuantity": 4
+    },
+    {
+      "id": 2,
+      "fullName": "Иван Смирнов Спиридонович",
+      "name": "Иван",
+      "surname": "Смирнов",
+      "age": 18,
+      "phone": "+79994005010",
+      "dateRegister": "18.06.2026",
+      "applicationQuantity": 7
+    }
+  ],
+  "applications": []
+}
