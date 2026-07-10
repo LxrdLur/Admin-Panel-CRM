@@ -1,6 +1,8 @@
+@use '@/shared/assets/styles/_variables' as vars;
+
 .input{
   width: 80%;
-  border: 2px solid #5d82d3;
+  border: 2px solid vars.$red-color;
   border-radius: 10px;
   height: 60px;
   padding-left: 10px;

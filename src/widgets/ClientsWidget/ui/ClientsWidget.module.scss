@@ -1,5 +1,5 @@
 @use '@/shared/assets/styles/_mixin';
-@use '@/shared/assets/styles/_variables';
+@use '@/shared/assets/styles/_variables' as vars;
 
 .clientsList{
   width: 100%;
@@ -16,7 +16,7 @@
 .clientList__retry{
   width: 40px;
   height: 40px;
-  background-color: variables.$blue-color;
+  background-color: vars.$red-color;
   border-radius: 20px;
   @include mixin.flex;
   svg{

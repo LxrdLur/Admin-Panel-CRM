@@ -1,8 +1,19 @@
 import styles from './SearchBar.module.scss'
 
-const SearchBar = () => {
+type SearchBarProps = {
+    value: string;
+    onChange: (value: string) => void;
+};
+
+const SearchBar = ({value, onChange}: SearchBarProps) => {
     return (
-        <input type="text" placeholder='Введите текст' className={styles.input}/>
+        <input
+            value={value}
+            onChange={event => onChange(event.target.value)}
+            type="text"
+            placeholder='Введите текст'
+            className={styles.input}
+        />
     );
 };
 

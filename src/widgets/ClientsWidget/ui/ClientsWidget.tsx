@@ -1,13 +1,22 @@
 import styles from './ClientsWidget.module.scss';
 import ClientCard from "@/shared/UI/client-card/ui/ClientCard.tsx";
 import {useClients} from "@/widgets/ClientsWidget/model/useClients.ts";
+import {useSearchBar} from "@/feature/search-bar/model/useSearchBar.ts";
+type ClientsWidgetType = {
+    searchValue: string;
+};
 
-
-const ClientsWidget = () => {
+const ClientsWidget = ({searchValue}: ClientsWidgetType) => {
     const {clients, isLoading, error, refetch} = useClients()
 
+    const filteredClients = useSearchBar(clients, searchValue)
+
     if(isLoading){
-        return <p>Загрузка клиентов</p>
+        return (
+            <div className={styles.clientList__error}>
+                <p>Загрузка клиентов...</p>
+            </div>
+        )
     }
     if(error){
         return (
@@ -23,23 +32,37 @@ const ClientsWidget = () => {
         )
     }
     if(clients.length === 0){
-        return <p>Клиенты отсутствуют</p>
+        return (
+            <div className={styles.clientList__error}>
+                <p>Клиенты отсутствуют</p>
+            </div>
+        )
+    }
+    if(filteredClients.length === 0){
+        return (
+            <div className={styles.clientList__error}>
+                <p>По запросу '{searchValue}' пользователь не найден</p>
+            </div>
+        )
     }
 
     return (
-        <div className={styles.clientsList}>
-            {
-                clients.map((item) => (
-                    <ClientCard
-                        key={item.id}
-                        fullName={item.fullName}
-                        age={item.age}
-                        dateRegister={item.dateRegister}
-                        applicationQuantity={item.applicationQuantity}
-                    />
-                ))
-            }
+        <div>
+            <div className={styles.clientsList}>
+                {
+                    filteredClients.map((item) => (
+                        <ClientCard
+                            key={item.id}
+                            fullName={item.fullName}
+                            age={item.age}
+                            dateRegister={item.dateRegister}
+                            applicationQuantity={item.applicationQuantity}
+                        />
+                    ))
+                }
+            </div>
         </div>
+
     );
 };
 

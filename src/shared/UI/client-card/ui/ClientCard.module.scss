@@ -1,10 +1,11 @@
 @use '@/shared/assets/styles/_mixin';
+@use '@/shared/assets/styles/_variables' as vars;
 
 .clientCard{
   width: 80%;
   height: 120px;
-  border-left: 3px solid #5d82d3;
-  border-right: 3px solid #5d82d3;
+  border-left: 3px solid vars.$red-color;
+  border-right: 3px solid vars.$red-color;
   border-radius: 15px;
   padding: 0 15px;
   @include mixin.flex(space-between, center);
