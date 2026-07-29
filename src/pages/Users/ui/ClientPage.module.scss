@@ -1,24 +1,42 @@
-@use '@/shared/assets/styles/_mixin';
+@use '@/shared/assets/styles/_mixin' as mixin;
+@use '@/shared/assets/styles/_variables' as vars;
 .clientPage{
-  display: flex;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-.middleBar{
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.title{
-  font-size: 30px;
-  margin-bottom: 80px;
-  text-align: center;
-  padding-top: 50px;
+  width: 100%;
+  padding: 40px 70px 50px 70px;
 
-  h3{
-    font-size: 40px;
+  &__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    h2{
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+    nav{
+      font-size: 20px;
+      color: vars.$gray-text-secondary;
+      margin-bottom: 20px;
+    }
+  }
+  &__info{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 100px;
+    margin-bottom: 30px;
+  }
+  &__addUser{
+    @include mixin.flex();
+    column-gap: 15px;
+    svg{
+      width: 40px;
+      height: 40px;
+      fill: #fff;
+    }
   }
 }
+
 .input{
   width: 100%;
   margin-bottom: 70px;

@@ -1,0 +1,139 @@
+@use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
+
+.sidebar{
+  background-color: vars.$black-sidebar;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px 0 30px 0;
+  flex: 0 0 330px;
+  height: 100vh;
+
+  &__bottom{
+    padding: 0 15px;
+  }
+  &__logo{
+    height: 10%;
+    font-size: 30px;
+    @include mixin.flex(start,center);
+    column-gap: 15px;
+    margin-bottom: 50px;
+    padding-left: 30px;
+
+    img{
+      width: 70px;
+      height: 70px;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
+  }
+  &__nav{
+    ul {
+      padding: 0 10px;
+      li{
+        @include mixin.flex(start, center);
+        column-gap: 15px;
+        font-size: 20px;
+        height: 60px;
+        padding-left: 30px;
+        border-radius: 0 15px 15px 0;
+        position: relative;
+        cursor: pointer;
+        transition: .2s ease-in;
+        color: #e0e0e0;
+        &::before{
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 5px;
+          height: 100%;
+          background-color: vars.$red-accent-hover;
+          border-radius: 15%;
+          opacity: 0;
+          transition: .2s ease-in;
+        }
+        &:hover{
+          background-color: vars.$red-accent-bg;
+          &::before{
+            opacity: 1;
+          }
+        }
+
+      }
+      li + li{
+        margin-top: 5px;
+      }
+    }
+  }
+  &__icon{
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+    stroke: #fff;
+  }
+  &__groupIcon{
+    fill: #fff;
+  }
+  &__settings{
+    border-top: 1px solid vars.$gray-border;
+    border-bottom: 1px solid vars.$gray-border;
+    padding-left: 15px;
+    transition: .3s ease-in;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: vars.$red-accent-hover;
+      border-radius: 15%;
+      opacity: 0;
+      transition: .2s ease-in;
+    }
+
+    &:hover{
+      background-color: vars.$red-accent-bg;
+      border-top: 1px solid vars.$red-accent-bg;
+      border-bottom: 1px solid vars.$red-accent-bg;
+      border-radius: 0 15px 15px 0;
+
+      &::before{
+        opacity: 1;
+      }
+    }
+  }
+  &__button{
+    width: 100%;
+    font-size: 20px;
+    color: #fff;
+    @include mixin.flex(start,center);
+    column-gap: 15px;
+    padding: 15px 0;
+
+  }
+  &__profile{
+    padding-left: 15px;
+    @include mixin.flex(space-between, center);
+
+    padding-top: 15px;
+
+    nav + nav{
+      margin-top: 5px;
+    }
+    img{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
+  &__userName{
+    font-size: 18px;
+  }
+  &__userRole{
+    color: vars.$gray-text-secondary;
+  }
+
+}

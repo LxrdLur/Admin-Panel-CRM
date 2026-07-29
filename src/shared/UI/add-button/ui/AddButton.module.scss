@@ -1,0 +1,15 @@
+@use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
+.addButton {
+  padding: 10px 15px;
+  background-color: vars.$red-accent;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 10px;
+  @include mixin.flex();
+  column-gap: 10px;
+  svg{
+    width: 25px;
+    height: 25px;
+  }
+}

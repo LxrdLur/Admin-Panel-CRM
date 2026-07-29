@@ -1,7 +1,9 @@
+@use '@/shared/assets/styles/_variables' as vars;
+
 body{
-  font-family: "Host Grotesk", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: #181818;
+  background-color: vars.$black-background;
   color: #d3d3d3;
 }

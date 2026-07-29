@@ -13,8 +13,12 @@ export function useClients () {
         try{
             const clientsData = await getClients();
             setClients(clientsData)
-        }catch{
-            setError('При загрузке данных произошла ошибка')
+        }catch (error: unknown) {
+            if (error instanceof Error) {
+                setError(error.message);
+            } else {
+                setError('Произошла неизвестная ошибка...');
+            }
         }finally {
             setIsLoading(false)
         }

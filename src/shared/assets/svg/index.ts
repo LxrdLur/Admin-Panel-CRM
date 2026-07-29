@@ -1,0 +1,18 @@
+export { default as GridIcon } from './grid.svg?react';
+export { default as UserGroupIcon } from './user-group.svg?react';
+export { default as ClipboardIcon } from './clipboard.svg?react';
+export { default as HandshakeIcon } from './handshake.svg?react';
+export { default as ChartsIcon } from './charts.svg?react';
+export { default as SettingsIcon } from './settings.svg?react';
+export {default as ArrowDownIcon} from './arrow-down.svg?react';
+export {default as UserGearIcon} from './user-gear.svg?react';
+export {default as UserPlusIcon} from './user-plus.svg?react';
+export {default as ArrowUpIcon} from './arrow-up.svg?react';
+export {default as ViewIcon} from './eye.svg?react';
+export {default as EditIcon} from './pen.svg?react';
+export {default as ActionsIcon} from './ellipsis.svg?react';
+export {default as RefetchIcon} from './refetch.svg?react';
+export {default as NotifyIcon} from './notify.svg?react';
+export {default as PlusIcon} from './plus.svg?react';
+export {default as SwitchArrowLeftIcon} from './switch-arrow-left.svg?react';
+export {default as SwitchArrowRightIcon} from './switch-arrow-right.svg?react';

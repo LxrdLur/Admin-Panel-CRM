@@ -7,8 +7,10 @@
       "surname": "Паршин",
       "age": 15,
       "phone": "+79990000000",
+      "email": "example@mail.ru",
       "dateRegister": "18.06.2026",
-      "applicationQuantity": 4
+      "applicationQuantity": 4,
+      "status": "active"
     },
     {
       "id": 2,
@@ -17,8 +19,22 @@
       "surname": "Смирнов",
       "age": 18,
       "phone": "+79994005010",
+      "email": "example@mail.ru",
       "dateRegister": "18.06.2026",
-      "applicationQuantity": 7
+      "applicationQuantity": 7,
+      "status": "new"
+    },
+    {
+      "id": 3,
+      "fullName": "Иванов Андрей Викторович",
+      "name": "Андрей",
+      "surname": "Иванов",
+      "age": 20,
+      "phone": "+79994005010",
+      "email": "example@mail.ru",
+      "dateRegister": "18.06.2026",
+      "applicationQuantity": 7,
+      "status": "blocked"
     }
   ],
   "applications": []

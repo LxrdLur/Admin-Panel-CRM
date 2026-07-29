@@ -1,0 +1,49 @@
+@use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
+
+.infoCard{
+  height: 180px;
+  background-color: vars.$gray-surface;
+  border: 2px solid vars.$gray-surface-elevated;
+  border-radius: 20px;
+  padding: 30px 0 0 20px;
+  display: flex;
+  column-gap: 20px;
+
+  &__icon{
+    width: 80px;
+    height: 80px;
+    @include mixin.flex();
+    background-color: vars.$gray-surface;
+    border: 2px solid vars.$gray-surface-elevated;
+    border-radius: 10px;
+    svg{
+      width: 40px;
+      height: 40px;
+      fill: #fff;
+    }
+  }
+  &__text{
+
+  }
+  &__title{
+    color: vars.$gray-text-muted;
+    margin-bottom: 5px;
+  }
+  &__total{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  &__rating{
+    display: flex;
+    svg{
+      width: 20px;
+      height: 20px;
+      fill: vars.$green-status;
+    }
+    span{
+      color: vars.$green-status;
+    }
+  }
+}

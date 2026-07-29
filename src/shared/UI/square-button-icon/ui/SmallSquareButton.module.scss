@@ -1,0 +1,18 @@
+@use '@/shared/assets/styles/_variables' as vars;
+
+.squareButton{
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid vars.$gray-border;
+  padding: 5px;
+  svg{
+    stroke: #fff;
+    fill: #fff;
+    transition: 0.2s ease-in;
+  }
+  &:hover svg{
+    stroke: vars.$red-accent-hover;
+    fill: vars.$red-accent-hover;
+  }
+}

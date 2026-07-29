@@ -1,0 +1,156 @@
+@use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
+.clientsTable{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  thead{
+    th{
+      font-size: 18px;
+      font-weight: 400;
+    }
+    tr{
+      height: 50px;
+      background-color: vars.$gray-surface-elevated;
+    }
+  }
+  tbody{
+    tr{
+      td{
+        padding: 15px 0 ;
+      }
+    }
+    tr + tr{
+      border-top: 1px solid vars.$gray-border;
+    }
+  }
+  &__client{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    padding-left: 20px;
+    img{
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+    }
+  }
+  &__name{
+    span{
+      display: block;
+    }
+  }
+  &__contacts{
+    display: flex;
+    flex-direction: column;
+    *+*{
+      margin-top: 5px;
+    }
+  }
+  &__applications{
+    text-align: center;
+  }
+  &__status{
+    @include mixin.flex();
+  }
+  &__actions{
+    @include mixin.flex();
+    column-gap: 15px;
+  }
+}
+.clientColumn {
+  width: 32%;
+  text-align: start;
+}
+.contactsColumn {
+  width: 20%;
+}
+.dateColumn {
+  width: 16%;
+}
+.requestsColumn {
+  width: 9%;
+}
+.statusColumn {
+  width: 10%;
+}
+.actionsColumn {
+  width: 13%;
+}
+.clientStatus__active, .clientStatus__new, .clientStatus__blocked{
+  padding: 7px 12px;
+  border-radius: 5px;
+  text-align: center;
+}
+.clientStatus__active{
+  background-color: vars.$green-status-bg;
+  border: 1px solid vars.$green-status;
+}
+.clientStatus__new{
+  background-color: vars.$orange-status-bg;
+  border: 1px solid vars.$orange-status;
+}
+.clientStatus__blocked{
+  background-color: vars.$red-accent-bg;
+  border: 1px solid vars.$red-accent;
+}
+.tableTitleClient{
+  padding-left: 20px;
+}
+.tableTitleClient, .tableTitleContacts, .tableTitleRegister{
+  text-align: start;
+}
+.tableTitleApplications, .tableTitleStatus, .tableTitleActions{
+  text-align: center;
+}
+
+
+.clientsTable__skeleton{
+
+  .clientsTable__client{
+    div{
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: vars.$gray-surface-elevated;
+    }
+  }
+  .clientsTable__client, .clientsTable__contacts,
+  .clientsTable__register, .clientsTable__applications, .clientsTable__status{
+    span{
+      display: block;
+      width: 200px;
+      height: 20px;
+      background-color: vars.$gray-surface-elevated;
+    }
+  }
+  .clientsTable__register{
+    span{
+      width: 180px;
+    }
+  }
+  .clientsTable__applications{
+    span{
+      width: 130px;
+    }
+  }
+  .clientsTable__status{
+    span{
+      width: 100px;
+    }
+  }
+}
+
+.clientsTable__error{
+  width: 100%;
+  text-align: center;
+  @include mixin.flex();
+
+  font-size: 20px;
+  svg{
+    width: 30px;
+    height: 30px;
+    fill: vars.$red-accent;
+  }
+}

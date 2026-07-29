@@ -1,65 +1,53 @@
 import styles from './ClientsWidget.module.scss';
-import ClientCard from "@/shared/UI/client-card/ui/ClientCard.tsx";
 import {useClients} from "@/widgets/ClientsWidget/model/useClients.ts";
 import {useSearchBar} from "@/feature/search-bar/model/useSearchBar.ts";
+import ClientsTable from "@/widgets/ClientsWidget/ui/ClientsTable/ClientsTable.tsx";
+import SearchBar from "@/feature/search-bar/ui/SearchBar.tsx";
+import SmallSquareButton from "@/shared/UI/square-button-icon/ui/SmallSquareButton.tsx";
+import {SwitchArrowLeftIcon, SwitchArrowRightIcon} from "@/shared/assets/svg";
+
+
 type ClientsWidgetType = {
     searchValue: string;
+    onSearchChange: (value: string) => void;
 };
 
-const ClientsWidget = ({searchValue}: ClientsWidgetType) => {
+const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
     const {clients, isLoading, error, refetch} = useClients()
-
     const filteredClients = useSearchBar(clients, searchValue)
 
-    if(isLoading){
-        return (
-            <div className={styles.clientList__error}>
-                <p>Загрузка клиентов...</p>
-            </div>
-        )
-    }
-    if(error){
-        return (
-            <div className={styles.clientList__error}>
-                <p>{error}</p>
-                <button
-                    className={styles.clientList__retry}
-                    onClick={()=> void refetch()}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M500.7 138.7L512 149.4L512 96C512 78.3 526.3 64 544 64C561.7 64 576 78.3 576 96L576 224C576 241.7 561.7 256 544 256L416 256C398.3 256 384 241.7 384 224C384 206.3 398.3 192 416 192L463.9 192L456.3 184.8C456.1 184.6 455.9 184.4 455.7 184.2C380.7 109.2 259.2 109.2 184.2 184.2C109.2 259.2 109.2 380.7 184.2 455.7C259.2 530.7 380.7 530.7 455.7 455.7C463.9 447.5 471.2 438.8 477.6 429.6C487.7 415.1 507.7 411.6 522.2 421.7C536.7 431.8 540.2 451.8 530.1 466.3C521.6 478.5 511.9 490.1 501 501C401 601 238.9 601 139 501C39.1 401 39 239 139 139C238.9 39.1 400.7 39 500.7 138.7z"/></svg>
-                </button>
-            </div>
-        )
-    }
-    if(clients.length === 0){
-        return (
-            <div className={styles.clientList__error}>
-                <p>Клиенты отсутствуют</p>
-            </div>
-        )
-    }
-    if(filteredClients.length === 0){
-        return (
-            <div className={styles.clientList__error}>
-                <p>По запросу '{searchValue}' пользователь не найден</p>
-            </div>
-        )
-    }
-
     return (
-        <div>
-            <div className={styles.clientsList}>
-                {
-                    filteredClients.map((item) => (
-                        <ClientCard
-                            key={item.id}
-                            fullName={item.fullName}
-                            age={item.age}
-                            dateRegister={item.dateRegister}
-                            applicationQuantity={item.applicationQuantity}
-                        />
-                    ))
-                }
+        <div className={styles.clients}>
+            <div className={styles.clients__filters}>
+                <SearchBar
+                    value={searchValue}
+                    onChange={onSearchChange}
+                    placeholder='Поиск по имени или телефону'
+                />
+            </div>
+            <div className={styles.clients__list}>
+                <ClientsTable
+                    filteredClients={filteredClients}
+                    isLoading={isLoading}
+                    error={error}
+                    refetch={refetch}
+                />
+            </div>
+            <div className={styles.clients__switch}>
+                <span className={styles.clients__totalCLients}>Всего клиентов: {clients.length}</span>
+                <div className={styles.clients__switchButtons}>
+                    <SmallSquareButton>
+                        <SwitchArrowLeftIcon/>
+                    </SmallSquareButton>
+
+                    <SmallSquareButton>
+                        1
+                    </SmallSquareButton>
+
+                    <SmallSquareButton>
+                        <SwitchArrowRightIcon/>
+                    </SmallSquareButton>
+                </div>
             </div>
         </div>
 

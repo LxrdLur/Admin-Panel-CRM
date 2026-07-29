@@ -1,24 +1,39 @@
-import SearchBar from "@/feature/search-bar/ui/SearchBar.tsx";
 import styles from './ClientPage.module.scss';
+import InfoCard from "@/shared/UI/info-card/InfoCard.tsx";
+import {UserGroupIcon, UserPlusIcon, ClipboardIcon, NotifyIcon} from "@/shared/assets/svg";
 import ClientsWidget from "@/widgets/ClientsWidget/ui/ClientsWidget.tsx";
 import {useState} from "react";
-import LeftBarWidget from "@/widgets/LeftBarWidget/ui/LeftBarWidget.tsx";
+import AddButton from "@/shared/UI/add-button/ui/AddButton.tsx";
 
 const ClientPage = () => {
     const [searchValue, setSearchValue] = useState('');
 
     return (
         <div className={styles.clientPage}>
-            <LeftBarWidget/>
-            <div className={styles.middleBar}>
-                <div className={styles.title}>
-                    <h3>Страница клиентов</h3>
+            <div className={styles.clientPage__top}>
+                <div className={styles.clientPage__title}>
+                    <h2>Клиенты</h2>
+                    <nav>Управление клиентской базой</nav>
                 </div>
-                <div className={styles.input}>
-                    <SearchBar value={searchValue} onChange={setSearchValue}/>
+                <div className={styles.clientPage__addUser}>
+                    <NotifyIcon/>
+                    <AddButton>Добавить клиента</AddButton>
                 </div>
+            </div>
+            <div className={styles.clientPage__info}>
+                <InfoCard icon={<UserGroupIcon/>} total={1000} rating={8}>
+                    <nav>Всего клиентов</nav>
+                </InfoCard>
+                <InfoCard icon={<UserPlusIcon/>} total={1000} rating={10}>
+                    <nav>Всего клиентов</nav>
+                </InfoCard>
+                <InfoCard icon={<ClipboardIcon/>} total={1000} rating={15}>
+                    <nav>Активные заявки</nav>
+                </InfoCard>
+            </div>
+            <div className={styles.clientPage__clients}>
                 <div className={styles.clientsList}>
-                    <ClientsWidget searchValue={searchValue}/>
+                    <ClientsWidget searchValue={searchValue} onSearchChange={setSearchValue}/>
                 </div>
             </div>
         </div>
