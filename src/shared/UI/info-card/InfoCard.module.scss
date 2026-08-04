@@ -24,7 +24,8 @@
     }
   }
   &__text{
-
+    display: flex;
+    flex-direction: column;
   }
   &__title{
     color: vars.$gray-text-muted;

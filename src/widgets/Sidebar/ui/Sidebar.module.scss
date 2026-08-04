@@ -135,5 +135,9 @@
   &__userRole{
     color: vars.$gray-text-secondary;
   }
-
+  &__userInfo{
+    span{
+      display: block;
+    }
+  }
 }
