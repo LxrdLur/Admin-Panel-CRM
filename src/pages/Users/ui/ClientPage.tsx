@@ -13,7 +13,7 @@ const ClientPage = () => {
             <div className={styles.clientPage__top}>
                 <div className={styles.clientPage__title}>
                     <h2>Клиенты</h2>
-                    <nav>Управление клиентской базой</nav>
+                    <span>Управление клиентской базой</span>
                 </div>
                 <div className={styles.clientPage__addUser}>
                     <NotifyIcon/>
@@ -22,13 +22,13 @@ const ClientPage = () => {
             </div>
             <div className={styles.clientPage__info}>
                 <InfoCard icon={<UserGroupIcon/>} total={1000} rating={8}>
-                    <nav>Всего клиентов</nav>
+                    <span>Всего клиентов</span>
                 </InfoCard>
                 <InfoCard icon={<UserPlusIcon/>} total={1000} rating={10}>
-                    <nav>Всего клиентов</nav>
+                    <span>Всего клиентов</span>
                 </InfoCard>
                 <InfoCard icon={<ClipboardIcon/>} total={1000} rating={15}>
-                    <nav>Активные заявки</nav>
+                    <span>Активные заявки</span>
                 </InfoCard>
             </div>
             <div className={styles.clientPage__clients}>

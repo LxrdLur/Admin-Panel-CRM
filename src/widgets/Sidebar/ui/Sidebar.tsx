@@ -13,7 +13,7 @@ const Sidebar = () => {
             <div className={styles.sidebar__top}>
                 <div className={styles.sidebar__logo}>
                     <img src={logo} alt=""/>
-                    <nav>Clients CRM</nav>
+                    <span>Clients CRM</span>
                 </div>
                 <nav className={styles.sidebar__nav}>
                     <ul>
@@ -44,16 +44,16 @@ const Sidebar = () => {
                 <div className={styles.sidebar__settings}>
                     <button className={styles.sidebar__button}>
                         <SettingsIcon className={styles.sidebar__icon}/>
-                        <nav>Настройки</nav>
+                        <span>Настройки</span>
                     </button>
                 </div>
                 <div className={styles.sidebar__profile}>
                     <img src={clientPhoto} alt="User Avatar"/>
                     <div className={styles.sidebar__userInfo}>
-                        <nav className={styles.sidebar__userName}>
+                        <span className={styles.sidebar__userName}>
                             Никита Паршин
-                        </nav>
-                        <nav className={styles.sidebar__userRole}>Администратор</nav>
+                        </span>
+                        <span className={styles.sidebar__userRole}>Администратор</span>
                     </div>
                     <ArrowDownIcon className={styles.sidebar__icon}/>
                 </div>

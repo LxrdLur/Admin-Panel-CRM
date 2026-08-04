@@ -18,12 +18,3 @@ export interface Client {
     applicationQuantity: number;
     status: ClientStatus;
 }
-type Applications = {
-    id: number;
-    clientId: number;
-    title: string;
-    dateCreate: string;
-    dateClose: string;
-    status: string;
-    text: string;
-}

@@ -16,8 +16,8 @@ const InfoCard = ({icon, children, total, rating}: InfoCardProps) => {
                 {icon}
             </div>
             <div className={styles.infoCard__text}>
-                <nav className={styles.infoCard__title}>{children}</nav>
-                <nav className={styles.infoCard__total}>{total}</nav>
+                <span className={styles.infoCard__title}>{children}</span>
+                <span className={styles.infoCard__total}>{total}</span>
                 <div className={styles.infoCard__rating}><ArrowUpIcon/> <span>{rating}%&nbsp;</span>с прошлого месяца</div>
             </div>
 
