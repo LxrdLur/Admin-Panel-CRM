@@ -17,11 +17,10 @@ const ClientsTable = ({filteredClients, isLoading, error, refetch}: FilteredClie
                 <col className={styles.clientColumn} />
                 <col className={styles.contactsColumn} />
                 <col className={styles.dateColumn} />
-                <col className={styles.applicationsColumn} />
+                <col className={styles.requestsColumn} />
                 <col className={styles.statusColumn} />
                 <col className={styles.actionsColumn} />
             </colgroup>
-
             <thead>
                 <tr>
                     <th className={styles.tableTitleClient}>Клиент</th>

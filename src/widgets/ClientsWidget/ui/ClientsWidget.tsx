@@ -5,6 +5,7 @@ import ClientsTable from "@/widgets/ClientsWidget/ui/ClientsTable/ClientsTable.t
 import SearchBar from "@/feature/search-bar/ui/SearchBar.tsx";
 import SmallSquareButton from "@/shared/UI/square-button-icon/ui/SmallSquareButton.tsx";
 import {SwitchArrowLeftIcon, SwitchArrowRightIcon} from "@/shared/assets/svg";
+import StatusFilter from "@/feature/status-filter/ui/StatusFilter.tsx";
 
 
 type ClientsWidgetType = {
@@ -24,6 +25,7 @@ const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
                     onChange={onSearchChange}
                     placeholder='Поиск по имени или телефону'
                 />
+                <StatusFilter/>
             </div>
             <div className={styles.clients__list}>
                 <ClientsTable

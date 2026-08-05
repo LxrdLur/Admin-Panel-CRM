@@ -13,13 +13,14 @@
     border-radius: 10px 10px 0 0;
     padding-left: 20px;
     @include mixin.flex(start, center);
-    input{
-      width: 30%;
+    column-gap: 20px;
+    input, select{
       height: 45px;
       background-color: vars.$black-background;
       border: 1px solid vars.$gray-border;
       color: #fff;
     }
+    input {width: 30%;}
   }
   &__list{
     min-height: 200px;

@@ -1,0 +1,80 @@
+@use '@/shared/assets/styles/_variables' as vars;
+.select {
+  position: relative;
+  width: 220px;
+
+}
+
+.select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  border-radius: 5px;
+  height: 45px;
+
+  width: 100%;
+  padding: 10px 14px;
+
+  color: #858c99;
+  background-color: vars.$black-background;
+
+  font: inherit;
+  border: 1px solid vars.$gray-border;
+
+  cursor: pointer;
+}
+
+.select__arrow {
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.select__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 10;
+
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+
+  list-style: none;
+  background-color: #1b1f27;
+  border: 1px solid #343a46;
+  border-radius: 8px;
+}
+
+.select:hover .select__list,
+.select:focus-within .select__list {
+  display: block;
+}
+
+.select__option {
+  width: 100%;
+  padding: 10px 12px;
+
+  color: #ffffff;
+  background: transparent;
+
+  font: inherit;
+  text-align: left;
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.select__option:hover,
+.select__option:focus {
+  background-color: #2b313d;
+  outline: none;
+}

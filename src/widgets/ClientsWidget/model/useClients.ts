@@ -8,6 +8,8 @@ export function useClients () {
     const [error, setError] = useState<string | null>(null)
 
     const loadClients = useCallback(async ()=>{
+        setIsLoading(true);
+        setError(null);
         try{
             const clientsData = await getClients();
             setClients(clientsData)
@@ -23,6 +25,7 @@ export function useClients () {
     }, [])
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         void loadClients()
     }, [loadClients])
 
