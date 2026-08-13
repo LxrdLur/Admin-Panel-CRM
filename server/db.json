@@ -10,7 +10,8 @@
       "email": "example@mail.ru",
       "dateRegister": "18.06.2026",
       "applicationQuantity": 4,
-      "status": "active"
+      "status": "active",
+      "statusForSort": "Активный"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "email": "example@mail.ru",
       "dateRegister": "18.06.2026",
       "applicationQuantity": 7,
-      "status": "new"
+      "status": "new",
+      "statusForSort": "Новый"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "email": "example@mail.ru",
       "dateRegister": "18.06.2026",
       "applicationQuantity": 7,
-      "status": "blocked"
+      "status": "blocked",
+      "statusForSort": "Заблокирован"
     }
   ],
   "applications": []

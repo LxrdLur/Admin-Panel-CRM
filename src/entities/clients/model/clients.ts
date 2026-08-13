@@ -5,6 +5,7 @@ export const CLIENT_STATUS_LABELS: Record<ClientStatus, string> = {
     blocked: 'Заблокирован',
     new: 'Новый',
 }
+export const CLIENTS_STATUSES = ['Активный', 'Заблокирован', 'Новый'];
 
 export interface Client {
     email: string;
@@ -17,4 +18,5 @@ export interface Client {
     dateRegister: string;
     applicationQuantity: number;
     status: ClientStatus;
+    statusForSort: string;
 }

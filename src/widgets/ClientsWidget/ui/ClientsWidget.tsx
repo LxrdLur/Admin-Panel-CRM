@@ -6,7 +6,7 @@ import SearchBar from "@/feature/search-bar/ui/SearchBar.tsx";
 import SmallSquareButton from "@/shared/UI/square-button-icon/ui/SmallSquareButton.tsx";
 import {SwitchArrowLeftIcon, SwitchArrowRightIcon} from "@/shared/assets/svg";
 import StatusFilter from "@/feature/status-filter/ui/StatusFilter.tsx";
-
+import {useStatusFilter} from "@/feature/status-filter/model/useStatusFilter.ts";
 
 type ClientsWidgetType = {
     searchValue: string;
@@ -16,7 +16,17 @@ type ClientsWidgetType = {
 const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
     const {clients, isLoading, error, refetch} = useClients()
     const filteredClients = useSearchBar(clients, searchValue)
+    const {
+        isOpen,
+        showOptions,
+        selectValue,
+        chooseOptions,
+        isChosen,
+        resetFilters,
+        searchedAndSortedClients
+    } = useStatusFilter(filteredClients)
 
+    const test = searchedAndSortedClients()
     return (
         <div className={styles.clients}>
             <div className={styles.clients__filters}>
@@ -25,11 +35,18 @@ const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
                     onChange={onSearchChange}
                     placeholder='Поиск по имени или телефону'
                 />
-                <StatusFilter/>
+                <StatusFilter
+                    isOpen={isOpen}
+                    showOptions={showOptions}
+                    selectValue={selectValue}
+                    chooseOptions={chooseOptions}
+                    isChosen={isChosen}
+                    resetFilters={resetFilters}
+                />
             </div>
             <div className={styles.clients__list}>
                 <ClientsTable
-                    filteredClients={filteredClients}
+                    filteredClients={test}
                     isLoading={isLoading}
                     error={error}
                     refetch={refetch}
