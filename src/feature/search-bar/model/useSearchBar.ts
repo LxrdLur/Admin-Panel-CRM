@@ -1,11 +1,15 @@
 import type {Client} from "@/entities/clients/model/clients.ts";
 import {useMemo} from "react";
-
-export function useSearchBar(clients: Client[], searchValue: string,): Client[] {
+type SearchBarType = {
+    clients: Client[];
+    searchValue: string;
+    setSearchValue: (value: string) => void;
+}
+export function useSearchBar({clients, searchValue, setSearchValue}: SearchBarType) {
     const normalizedSearch = searchValue.trim().toLowerCase();
 
     const filteredClients = useMemo(()=>{
-        if(searchValue.length > 2){
+        if(normalizedSearch.length > 2){
             return clients.filter(client => {
                 const fullNameUser = client.fullName.toLowerCase().includes(normalizedSearch)
                 const numberUser = client.phone.includes(searchValue.trim())
@@ -15,8 +19,14 @@ export function useSearchBar(clients: Client[], searchValue: string,): Client[] 
         }else{
             return clients
         }
-    }, [clients, searchValue])
+    }, [clients, normalizedSearch, searchValue])
 
-    return filteredClients
+    const resetSearchBar = () => {
+        setSearchValue('')
+    }
+    return {
+        filteredClients,
+        resetSearchBar,
+    }
 
 }

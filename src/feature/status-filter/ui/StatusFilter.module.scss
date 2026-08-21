@@ -1,57 +1,63 @@
 @use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
 .select {
   position: relative;
-  width: 220px;
+  width: 200px;
 }
-
+.select__button{
+  display: flex;
+  color: #858c99;
+  background-color: vars.$black-background;
+  border: 1px solid vars.$gray-border;
+  border-radius: 5px;
+}
 .select__trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
   height: 45px;
-  width: 100%;
+  width: 80%;
   padding: 10px 14px;
-  color: #858c99;
-  background-color: vars.$black-background;
-  font: inherit;
-  border: 1px solid vars.$gray-border;
   cursor: pointer;
-
 }
 
 .select__arrow {
   display: block;
   position: relative;
+  width: 20%;
+  @include mixin.flex();
+}
+.select__standardArrow{
   width: 15px;
   height: 15px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-
-  transform: translateY(-2px) rotate(45deg);
-}
-.select__reset{
-  transform: unset;
-  border: 0;
-  &::before{
-    content: '';
-    display: block;
-    width: 15px;
-    height: 3px;
-    background-color: red;
-    transform: translateY(7px) rotate(50deg);
-  }
-  &::after{
-    content: '';
-    display: block;
-    width: 15px;
-    height: 3px;
-    background-color: red;
-    transform: translateY(4px) rotate(130deg);
-  }
+  border-right: 2px solid vars.$gray-border;
+  border-bottom: 2px solid vars.$gray-border;
+  transform: translateY(-3px) rotate(45deg);
 }
 .select__reverseArrow{
-  transform: translateY(4px) rotate(225deg);
+  width: 15px;
+  height: 15px;
+  border-right: 2px solid vars.$gray-border;
+  border-bottom: 2px solid vars.$gray-border;
+  transform: translateY(3px) rotate(225deg);
+}
+.select__resetArrow{
+  border: 0;
+  transform: unset;
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: #e42121;
+  }
+  &::before{
+    transform: rotate(-45deg);
+  }
+  &::after{
+    transform: rotate(45deg);
+  }
 }
 .select__list {
   position: absolute;

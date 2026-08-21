@@ -23,25 +23,27 @@ const StatusFilter = (
 
     return (
         <div className={styles.select}>
-            <button
-                className={styles.select__trigger}
-                type="button"
-                onClick={(event) => {
-                    event.preventDefault()
-                    showOptions()
-                }}
-            >
-                {selectValue}
-                <span
-                    className={clsx(
-                        styles.select__arrow,
-                        isChosen ? styles.select__reset : null,
-                        isOpen && !isChosen ? styles.select__reverseArrow : null
-                    )}
-                    onClick={()=> isChosen ? resetFilters() : null}
+            <div className={styles.select__button}>
+                <button
+                    className={styles.select__trigger}
+                    type="button"
+                    onClick={showOptions}
                 >
-                </span>
-            </button>
+                    {selectValue}
+                </button>
+                <div
+                    className={clsx(
+                        styles.select__arrow
+                    )}
+                    onClick={()=> isChosen ? resetFilters() : showOptions()}
+                >
+                    <button className={clsx(
+                        isOpen && !isChosen ? styles.select__reverseArrow : styles.select__standardArrow,
+                        isChosen ? styles.select__resetArrow : null
+                    )}></button>
+                </div>
+            </div>
+
 
             <ul className={clsx(styles.select__list, isOpen ? styles.showOptionsClass : null )}>
                 {CLIENTS_STATUSES.map((status, index) => (

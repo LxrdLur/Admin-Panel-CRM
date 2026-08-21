@@ -6,10 +6,20 @@
   color: #fff;
   font-size: 18px;
   border-radius: 10px;
+  transition: .2s ease-in;
   @include mixin.flex();
   column-gap: 10px;
   svg{
     width: 25px;
     height: 25px;
+    fill: #fff;
+    transition: .2s ease-in;
+  }
+  &:hover{
+    background-color: #fff;
+    color: vars.$red-accent;
+  }
+  &:hover svg{
+    fill: vars.$red-accent;
   }
 }

@@ -11,11 +11,12 @@ import {useStatusFilter} from "@/feature/status-filter/model/useStatusFilter.ts"
 type ClientsWidgetType = {
     searchValue: string;
     onSearchChange: (value: string) => void;
+    setSearchValue: (value: string) => void;
 };
 
-const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
+const ClientsWidget = ({searchValue, onSearchChange, setSearchValue}: ClientsWidgetType) => {
     const {clients, isLoading, error, refetch} = useClients()
-    const filteredClients = useSearchBar(clients, searchValue)
+    const {filteredClients, resetSearchBar} = useSearchBar({clients, searchValue, setSearchValue})
     const {
         isOpen,
         showOptions,
@@ -26,7 +27,8 @@ const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
         searchedAndSortedClients
     } = useStatusFilter(filteredClients)
 
-    const test = searchedAndSortedClients()
+    const sortedClients = searchedAndSortedClients()
+
     return (
         <div className={styles.clients}>
             <div className={styles.clients__filters}>
@@ -34,6 +36,8 @@ const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
                     value={searchValue}
                     onChange={onSearchChange}
                     placeholder='Поиск по имени или телефону'
+                    className={styles.clients__searchBar}
+                    onClick={resetSearchBar}
                 />
                 <StatusFilter
                     isOpen={isOpen}
@@ -46,7 +50,7 @@ const ClientsWidget = ({searchValue, onSearchChange}: ClientsWidgetType) => {
             </div>
             <div className={styles.clients__list}>
                 <ClientsTable
-                    filteredClients={test}
+                    filteredClients={sortedClients}
                     isLoading={isLoading}
                     error={error}
                     refetch={refetch}

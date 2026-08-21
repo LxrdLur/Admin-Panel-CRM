@@ -1,0 +1,10 @@
+@use '@/shared/assets/styles/_variables.scss' as vars;
+.notifications__button{
+  svg{
+    fill: #fff;
+    transition: .2s ease-in;
+  }
+  &:hover svg{
+    fill: vars.$red-accent;
+  }
+}

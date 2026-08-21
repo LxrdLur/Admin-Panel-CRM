@@ -1,7 +1,40 @@
 @use '@/shared/assets/styles/_variables' as vars;
+@use '@/shared/assets/styles/_mixin' as mixin;
+.searchBar{
+  display: flex;
 
-.input{
-  border-radius: 5px;
-  height: 40px;
-  padding-left: 10px;
+  &__input{
+    width: 93%;
+    height: 45px;
+    padding-left: 10px;
+    background-color: inherit;
+    border-radius: inherit;
+    border: none;
+  }
+  input:focus{
+    border: 0;
+    outline: none;
+  }
+  &__arrow{
+    width: 7%;
+    height: 45px;
+    position: relative;
+    @include mixin.flex();
+  }
+  &__resetArrow{
+    &::before, &::after {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 2px;
+      background-color: #e42121;
+    }
+    &::before{
+      transform: translateY(2px) rotate(45deg);
+
+    }
+    &::after{
+      transform: rotate(-45deg);
+    }
+  }
 }

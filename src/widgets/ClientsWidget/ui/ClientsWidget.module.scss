@@ -14,13 +14,19 @@
     padding-left: 20px;
     @include mixin.flex(start, center);
     column-gap: 20px;
-    input, select{
+    select{
       height: 45px;
       background-color: vars.$black-background;
       border: 1px solid vars.$gray-border;
       color: #fff;
     }
-    input {width: 30%;}
+  }
+  &__searchBar{
+    width: 500px;
+    background-color: vars.$black-background;
+    border: 1px solid vars.$gray-border;
+    border-radius: 5px;
+    color: #fff;
   }
   &__list{
     min-height: 200px;

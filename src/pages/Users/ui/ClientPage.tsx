@@ -1,12 +1,14 @@
 import styles from './ClientPage.module.scss';
 import InfoCard from "@/shared/UI/info-card/InfoCard.tsx";
-import {UserGroupIcon, UserPlusIcon, ClipboardIcon, NotifyIcon} from "@/shared/assets/svg";
+import {UserGroupIcon, UserPlusIcon, ClipboardIcon} from "@/shared/assets/svg";
 import ClientsWidget from "@/widgets/ClientsWidget/ui/ClientsWidget.tsx";
 import {useState} from "react";
 import AddButton from "@/shared/UI/add-button/ui/AddButton.tsx";
 
+
 const ClientPage = () => {
     const [searchValue, setSearchValue] = useState('');
+
 
     return (
         <div className={styles.clientPage}>
@@ -16,7 +18,6 @@ const ClientPage = () => {
                     <span>Управление клиентской базой</span>
                 </div>
                 <div className={styles.clientPage__addUser}>
-                    <NotifyIcon/>
                     <AddButton>Добавить клиента</AddButton>
                 </div>
             </div>
@@ -33,7 +34,7 @@ const ClientPage = () => {
             </div>
             <div className={styles.clientPage__clients}>
                 <div className={styles.clientsList}>
-                    <ClientsWidget searchValue={searchValue} onSearchChange={setSearchValue}/>
+                    <ClientsWidget searchValue={searchValue} onSearchChange={setSearchValue} setSearchValue={setSearchValue} />
                 </div>
             </div>
         </div>
